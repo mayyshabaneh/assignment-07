@@ -1,4 +1,4 @@
-class min_heap:
+class  MinHeap:
     def __init__(self) -> None:
         self.heap = []  #initialize an empty array as a heap
 
@@ -10,7 +10,7 @@ class min_heap:
 
     def heapify_up(self,value): 
         parent = (value-1)//2 
-        if value >0 and self.heap[value] < self.heap[parent]:
+        if value > 0 and self.heap[value] < self.heap[parent]:
             self.heap[value], self.heap[parent]= self.heap[parent] , self.heap[value]
             self.heapify_up(parent)    
 
@@ -49,7 +49,7 @@ class min_heap:
     def display(self): #return the list 
         return self.heap
 
-
+#git this code to check correctness
     def display_tree(self, index=0, indent=""):
         if index < len(self.heap):
             print(indent + str(self.heap[index]))
@@ -61,40 +61,28 @@ class min_heap:
                 self.display_tree(2 * index + 2, indent + "    ")
 
 
-MinHeap = min_heap()
-MinHeap.insert(10)
-print(MinHeap.display()) # Output: [10]
-MinHeap.insert(5)
-print(MinHeap.display())# Output: [5,10]
-MinHeap.insert(3)
-print(MinHeap.display())# Output: [3,10,5]
-MinHeap.insert(2)
-print(MinHeap.display())# Output: [2,3,5,10]
-MinHeap.insert(7)
-print(MinHeap.display())# Output: [2, 3, 5, 10, 7]
-MinHeap.display_tree()
-print(MinHeap.get_min())  # Output: 2
-print(MinHeap.extract_min())  # Output: 2
-print(MinHeap.display()) # Output: [3, 7, 5, 10]
-MinHeap.insert(100)
-MinHeap.insert(11)
-print(MinHeap.display())#Output: [3, 7, 5, 10,100,11]
-MinHeap.insert(22)
-print(MinHeap.display())#[3,7,5,10,100,11,22]
-MinHeap.insert(3)
-print(MinHeap.display())#[3,3,5,7,100,11,22,10]
-MinHeap.insert(6)
-print(MinHeap.display())#3,3,5,6,100,11,22,10,7
-MinHeap.insert(70)
-print(MinHeap.display())#3,3,5,6,70,11,22,10,7,100
-MinHeap.insert(1)
-print(MinHeap.display())#[1, 3, 5, 6, 3, 11, 22, 10, 7, 100, 70]
-MinHeap.insert(8)
-print(MinHeap.display())#[1, 3, 5, 6, 3, 8, 22, 10, 7, 100, 70, 11]
-MinHeap.insert(9)
-print(MinHeap.display())#[1, 3, 5, 6, 3, 8, 22, 10, 7, 100, 70, 11, 9]
-MinHeap.insert(10)
-print(MinHeap.display())#[1, 3, 5, 6, 3, 8, 10, 10, 7, 100, 70, 11, 9, 22]
-MinHeap.insert(11)
-print(MinHeap.display())#[1, 3, 5, 6, 3, 8, 10, 10, 7, 100, 70, 11, 9, 22, 11]
-MinHeap.display_tree()
+min_heap = MinHeap()
+print("test the insertion : ")
+min_heap.insert(11)
+min_heap.insert(200)
+min_heap.insert(22)
+min_heap.insert(44)
+min_heap.insert(15)
+min_heap.insert(54)
+min_heap.insert(3)
+min_heap.insert(2)
+min_heap.insert(1)
+min_heap.insert(7)
+min_heap.insert(6)
+min_heap.insert(555)
+min_heap.insert(89)
+print(min_heap.display())
+
+
+min_heap.extract_min()
+print("after extarction :" , min_heap.display())
+min_heap.display_tree()
+
+
+min_heap.get_min()
+print("get min :" , min_heap.display())
